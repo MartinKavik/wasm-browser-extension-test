@@ -6,6 +6,9 @@ pub fn add(a: u32, b: u32) -> u32 {
 }
 
 #[wasm_bindgen]
-pub fn window_exists() -> bool {
-    web_sys::window().is_some()
+pub fn alert() {
+    web_sys::window()
+        .expect_throw("window")
+        .alert_with_message("Window function called!")
+        .expect_throw("alert");
 }

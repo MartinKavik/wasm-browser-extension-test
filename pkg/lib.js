@@ -58,11 +58,9 @@ __exports.add = function(a, b) {
 };
 
 /**
-* @returns {boolean}
 */
-__exports.window_exists = function() {
-    var ret = wasm.window_exists();
-    return ret !== 0;
+__exports.alert = function() {
+    wasm.alert();
 };
 
 function handleError(f, args) {
@@ -127,8 +125,11 @@ async function init(input) {
     imports.wbg.__wbindgen_object_drop_ref = function(arg0) {
         takeObject(arg0);
     };
+    imports.wbg.__wbg_alert_70f063b2a1df2d0f = function() { return handleError(function (arg0, arg1, arg2) {
+        getObject(arg0).alert(getStringFromWasm0(arg1, arg2));
+    }, arguments) };
     imports.wbg.__wbg_self_c6fbdfc2918d5e58 = function() { return handleError(function () {
-        var ret = self.self;
+var ret = window;
         return addHeapObject(ret);
     }, arguments) };
     imports.wbg.__wbg_window_baec038b5ab35c54 = function() { return handleError(function () {

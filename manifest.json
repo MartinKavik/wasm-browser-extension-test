@@ -11,9 +11,16 @@
   "content_scripts": [{
       "matches": [ "*://*/*" ],
       "js": [
+          "via/receiver/receiver.js",
           "worker_proxy.js",
           "content-script.js"
       ]
   }],
-  "web_accessible_resources": [ "worker_proxy.html", "pkg/lib_bg.wasm" ]
+  "web_accessible_resources": [ 
+      "worker_proxy.html", 
+      "pkg/lib_bg.wasm",
+      "via/controller/object.js",
+      "via/controller/property.js",
+      "via/controller/controller.js"
+    ]
 }
